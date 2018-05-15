@@ -1,0 +1,4 @@
+name: hp-brew
+recipe: custom
+config:
+  webroot: .
