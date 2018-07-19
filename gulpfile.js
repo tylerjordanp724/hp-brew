@@ -19,6 +19,7 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src('src/sass/*.scss')
         .pipe(sass())
+        .pipe(uglify('style.css'))
         .pipe(gulp.dest('css/'));
 });
 
