@@ -1,11 +1,18 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <title>How Do You Brew? | High Point Brew Methods</title>
+        <title>How Do You Brew? | High Point Brew Methods</title> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">These are some coffee brew methods</div>
+        </div>
         <script>
             const water1 = '2-3 minutes off the boil (200 - 250F)';
             const measure1 = '1 heaping tablespoon per cup + 1 for the pot';
             const bloom = '"Bloom" the grounds by pouring water just to fully saturate the coffee.';
+            
             const brewMethods = [
                 { 
                     name:'french press',
@@ -128,10 +135,18 @@
                 }
             ];
 
-            console.log(brewMethods);
+            const markup = `
+            <div>
+               <ul> 
+                ${brewMethods.map(brew => `
+                    <li>${brew.name}</li>
+                    `).join('')}
+                </ul>
+                
+            </div>`;
             
+            console.log(brewMethods);
         </script>
-    </head>
-    <body></body>
+    </body>
     
 </html>
