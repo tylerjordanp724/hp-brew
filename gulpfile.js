@@ -1,9 +1,12 @@
 // Include gulp
 var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -19,8 +22,9 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src('src/sass/*.scss')
         .pipe(sass())
-        .pipe(uglify('style.css'))
-        .pipe(gulp.dest('css/'));
+        .pipe(autoprefixer({ browsers: ['last 3 versions'] }))
+        .pipe(gulp.dest('css/'))
+        .pipe(cleanCSS({}));
 });
 
 // Concatenate & Minify JS
