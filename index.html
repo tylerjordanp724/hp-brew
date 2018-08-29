@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8"/>
         <title>How Do You Brew? | High Point Brew Methods</title> 
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
@@ -140,17 +140,36 @@
             <div>
                <ul> 
                 ${brewMethods.map(brew => `
-                    <li>${brew.name}</li>
+                    <li class="brew">
+                        <h2>${brew.name}</h2>
+                        <p><strong>grind:</strong> ${brew.facts.grind}</p>
+                    </li>
                     `).join('')}
                 </ul>
                 
             </div>`;
+
+            document.body.innerHTML = markup;
             
-            console.log(brewMethods);
-            <script src="js/plugins.js"/>
-            <script src="js/scripts.js"/>
+            $(document).ready(function(){
+                const $brew = $('.brew');
+
+                $brew.each(function(){
+                    $(this).children('p').hide();
+                });
+
+                $brew.click(function() {
+                    $(this).children('p').toggle();
+                });
+            });
+
+           
+            
+            // console.log(brewMethods);
            
         </script>
+        <script src="js/plugins.js"/>
+        <script src="js/scripts.js"/>
     </body>
     
 </html>
