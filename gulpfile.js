@@ -76,7 +76,6 @@ gulp.task('plugins', function(){
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/scss/**/*.scss", ['style']);
-  gulp.watch("src/js/**/scripts.js", ['scripts']);
-  gulp.watch("src/js/**/plugins.js", ['plugins']);
+  gulp.watch("src/js/**/*.js", ['scripts', 'plugins']);
   gulp.watch("*.html", ['bs-reload']);
 });
